@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="resource/css/bootstrap.css" rel="stylesheet" />
+  <link href="resource/css/animate.css" rel="stylesheet" />
+  <link href="resource/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="resource/roboto/Roboto/Roboto-Condensed.ttf" />
+  <link href="assest/css/modal/modal.css" rel="stylesheet" />
+  <link href="resource/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="assest/css/login/css/ct-navbar.css" rel="stylesheet" />
+  <link href="assest/css/login/css/style.css" rel="stylesheet" />
+  <link rel="icon" href="assest/images/Ziba_Title.png" type="image/gif" sizes="16x16">
+  <title>ZibaHub</title>
+</head>
+<style type="text/css">
+  #boxborder {
+    border-style: solid;
+    background-color: white;
+    border-color: #e7dfdf;
+    border-width: 0.5px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+
+  .btnn {
+    padding-left: 101px;
+    padding-right: 101px;
+    font-size: 18px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    margin-top: 15px;
+    background-color: black;
+    color: white;
+    border: 0;
+    margin-bottom: 15px;
+  }
+
+  .siz {
+    font-size: 11px;
+  }
+
+  .img {
+    width: 79px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  input[type=email],
+  input[type=password] {
+    outline: none;
+    border: none;
+    width: 76%;
+    display: inline-block;
+    margin-left: 0px;
+    border-bottom: 1px solid #9db0c7;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #15345A;
+    font-size: 18px;
+
+  }
+
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+  }
+
+  .bg {
+
+    /* Full height */
+    background-image: url("assest/images/back1.png");
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  hr {
+    margin-left: 41px;
+    margin-right: 44px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #dfdada;
+  }
+
+  input[type=email] {
+    background-image: url('assest/images/mail3.png');
+    background-repeat: no-repeat;
+    padding-left: 27px;
+  }
+
+  input[type=password] {
+    background-image: url('assest/images/key1.png');
+    background-repeat: no-repeat;
+    padding-left: 27px;
+  }
+
+  ._51m- {
+    padding-bottom: 0;
+    padding-right: 92px !important;
+  }
+
+  ._51mz ._51m-:first-child {
+    padding-left: 94px !important;
+  }
+
+  element.style {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+  }
+
+  ._4z_b {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+
+  }
+
+  ._4z_d ._4z_f {
+    font-size: 16px !important;
+  }
+
+  ._4z_5 .img,
+  ._4z_5,
+  ._4z_f {
+    width: 73px !important;
+  }
+  .modal {
+  text-align: center;
+  padding: 0!important;
+}
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+</style>
+
+<body class="index_check" background="" style="display: none;">
+  <div class="container" >
+    <div class="col-md-12">
+      <div class=" col-md-offset-8 col-lg-offset-8 col-lg-4 col-md-4">
+        <div class="div_height">
+          <center>
+            <form id="login-form" class="form-horizontal m-t-20" action="#" autocomplete="off" style="background-color: white;padding-bottom:11px;">
+              <img src="assest/images/Ziba.png" class="img">
+              <div class="form-group">
+                <div style="padding-bottom: 15px;">
+                  <input placeholder="Email ID" type="email" name="username" autocomplete="off" name="uname" required style="word-spacing: 5px;font-size: 13px;">
+                </div>
+                <div style="padding-bottom: 15px;">
+
+                  <input placeholder="Password" type="password" name="password" id="myInput" required style="font-size: 13px;">
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btnn" id="login" style="padding-right: 107px;padding-left: 107px;">Log In</button>
+                <br>
+                  <!-- <span data-toggle="modal" data-target="#forget_password"  style="cursor: pointer;color: black;text-decoration: none;opacity: 0.5">Forgot Password?</span> -->
+              </div>
+            </form>
+          </center>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+     <div class="modal fade" id="forget_password" role="dialog" style="opacity: 1;">
+            <!-- Modal -->
+            <div class="modal-dialog" style="width: 486px;">
+
+                <!-- Modal content-->
+                <div class="" style="background-color: white;border-radius: 4px;">
+                    <div class="modal-header" style="padding: 10px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <p class="modal-title" style="padding-left: 6px;font-weight: 700">
+                            <b id="count_follow">Forgot Password</b>
+                        </p>
+
+                    </div>
+                    <div class="modal-body " style="background-color: white;padding: 0;bottom: 13px;">
+                      <div style="padding: 15px">
+                        <p style="padding-top: 11px;padding-bottom: 13px;">Please enter your email address to search for your account.</p>
+                         <input placeholder="Email ID" id="forgot_email" type="email" autocomplete="off" name="uname" required style="word-spacing: 5px;font-size: 13px;padding: 7px;border: 1px solid #9db0c7;background-image: unset;">
+                         <p id="registered" style="padding-top: 20px;margin-bottom: 0;display: none;">Hey! We've sent you an email to reset password, please do check and log in after.</p>
+                         <div id="not_registered" style="padding: 0;display: none;">
+                          <p  style="padding-top: 20px;margin-bottom: 18px;">You are not registered so please signup and login.</p>
+                          <a href="sign_up">Sign Up</a>
+                         </div>
+                      </div>
+                         <hr style="margin-left: unset;margin-right: unset;">
+                         <div style="text-align: right;margin-right: 12px;">
+                          <span  class="" data-dismiss="modal" style="cursor: pointer;">Cancel</span>
+                          <button type="button" class="save_button" id="conform_mail" style="padding-left: 10px;padding-right: 14px;padding-top: 3px;padding-bottom: 5px;">Confirm</button>
+                         </div>
+                    </div>
+            </div>
+        </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resource\js\jquery.min.js"></script>
+<script type="text/javascript" src="resource\js\bootstrap.min.js"></script>
+<script type="text/javascript" src="resource\js\jquery.validate.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script src="resource\js\notify.js"></script>
+<script type="text/javascript">
+
+  $(document).ready(function ($) {
+    
+      $(".index_check").show();
+      $(".index_check").addClass("bg")
+      var window_length = $(window).height();
+      var div_length = $(".div_height").height();
+      var balance = window_length - div_length;
+      var set_height = balance / 2;
+      $(".div_height").css('padding-top', set_height + "px");
+    // }
+    var form_data, username, password;
+    $("#conform_mail").click(function(){
+      var forgot_mail_id = $("#forgot_email").val();
+      if (forgot_mail_id.trim()) {
+        App.forgot_password(forgot_mail_id)
+      }else{
+        App.error_alert("Please enter email address")
+      }
+    });
+    $('#forget_password').on('hidden.bs.modal', function () {
+      $("#registered").hide();
+      $("#not_registered").hide();
+    });
+    $('#login-form').validate({
+      rules: {
+        username: "required",
+        password: "required"
+      },
+      invalidHandler: function () {
+      },
+      highlight: function (element, errorClass) {
+        // $(element).animateCss('shake');
+      },
+      submitHandler: function (form) {
+        $('#login').attr('disabled', true);
+        $('#login').text('Logging in...');
+        $("#login").css('padding-left', '85px');
+        $("#login").css('padding-right', '85px');
+        form_data = $("form").serializeArray();
+
+        // console.log(form_data);
+        $.each(form_data, function (index, value) {
+          // console.log(index);
+          switch (value.name) {
+            case "username":
+              username = value.value;
+              break;
+
+            case "password":
+              password = value.value;
+              break;
+          }
+          // console.log(value.name)
+        });
+
+        localStorage.setItem('user_name', username);
+
+        App.login(username, password);
+
+      }
+    });
+  });
+</script>
+
+</html>

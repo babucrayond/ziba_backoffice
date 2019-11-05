@@ -1,0 +1,16 @@
+{
+  "name": "zibahub",
+  "version": "1.0.0",
+  "description": "App for saloon",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
+  }
+}

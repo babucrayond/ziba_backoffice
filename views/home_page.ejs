@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+ 	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assest/css/nav_css/style.css">
+        <link href="resource/css/bootstrap.css" rel="stylesheet" />
+        <link href="resource/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="assest/plugins/datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+        <link href="F:/Zibahub/resource/roboto/Roboto/Roboto-Condensed.ttf" />
+        <link href="assest/css/ct-navbar.css" rel="stylesheet" />
+        <link href="assest/css/side_nav/setting.css" rel="stylesheet" />
+        <link rel="stylesheet" href="assest/css/nav_css/style.css">
+        <link rel="stylesheet" href="assest/css/style.css">
+        <link href="resource/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="icon" href="assest/images/Ziba_Title.png" type="image/gif" sizes="16x16">
+
+
+        <link rel="stylesheet" type="text/css" href="assest/css/datatable/table.css">
+
+        <title>ZibaHub</title>
+        <style type="text/css">
+        .nav_hover:hover{
+        	background-color: #272C35 !important;
+        	cursor: pointer;
+        }
+        .shadow {
+            padding: 10px;
+            box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+            background-color: white;
+            border-radius: 3px;
+        }
+        .block{
+        	float: right;
+		    background-color: #F44336;
+		    border: 0;
+		    color: white;
+		    padding: 3px 16px;
+		    margin-top: 6px;
+        }
+        .deleted{
+        	float: right;
+		    background-color: #485be4;
+		    border: 0;
+		    color: white;
+		    /*padding: 3px 12px;*/
+		    padding: 3px 21px;
+		    margin-top: 6px;
+        }
+        .deactive{
+        	float: right;
+		    background-color: #F44336;
+		    border: 0;
+		    color: white;
+		    /*padding: 3px 12px;*/
+		    padding: 3px 21px;
+		    margin-top: 6px;
+        }
+        .Unblock_active{
+        	float: right;
+		    background-color: #4CAF50;
+		    border: 0;
+		    color: white;
+		    padding: 3px 12px;
+		    /*padding: 3px 29px;*/
+		    margin-top: 6px;
+        }
+        .unblock{
+        	float: right;
+		    background-color: #4CAF50;
+		    border: 0;
+		    color: white;
+		    padding: 3px 12px;
+		    margin-top: 6px;
+        }
+        .search_button{
+            width: 248px;
+		    height: 36px;
+		    font-size: 15px;
+		    padding-left: 39px;
+		    background-size: 21px;
+		    border: 0px;
+		    border-radius: 3px;
+		    background-color: #cacaca;
+		    background-position: 9px 8px;
+		    background-repeat: no-repeat;
+        }
+        .modal {
+		  text-align: center;
+		  padding: 0!important;
+		}
+		.modal:before {
+		  content: '';
+		  display: inline-block;
+		  height: 100%;
+		  vertical-align: middle;
+		  margin-right: -4px;
+		}
+
+		.modal-dialog {
+		  display: inline-block;
+		  text-align: left;
+		  vertical-align: middle;
+		}
+        .remove_comments:hover{
+            text-decoration: underline;
+            color: blue;
+            cursor: pointer;
+        }
+        .delete_faq{
+            opacity: 0.5;
+        }
+        .edit_faqs{
+            opacity: 0.5;
+        }
+        .show_type_user,.show_type_post{
+            position: absolute;
+            z-index: 2;
+            background-color: white;
+            width: 125px;
+        }
+        .select_role,.select_type_post{
+            text-align: left;
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+        .select_role:hover,.select_type_post:hover{
+            background-color: lightgray;
+            cursor: pointer;
+        }
+        table{
+            width: 100%;
+        }
+        td,th{
+            border:0.5px solid lightgray;
+            padding: 8px;
+            text-align: center;
+        }
+        html{
+            overflow-x: hidden;
+        }
+        li{
+            width: 100%;
+        }
+        .nav-tabs>li>a{
+            width: 100%;
+            margin: 0;
+            border: unset;
+            background-color: #2f353f;
+            color: white;
+        }
+        /*.nav-tabs>li.active>a{
+            width: 100%;
+            margin: 0;
+            border: unset;
+            background-color: #2f353f;
+            color: white;   
+        }*/
+         .nav-tabs>li.active>a,.nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover,.nav-tabs>li>a:hover{
+            margin: 0;
+            border: unset;
+            background-color: #272C35 !important;
+            cursor: pointer;
+            color: white;
+        }
+        .nav-tabs{
+            border-bottom: unset;
+        }
+        .display_name_newsfeed{
+            font-weight: 700;
+            width: 139px;
+            margin-bottom: 0;
+            text-overflow: ellipsis;
+            display: inline-block;
+            font-weight: 600;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+          -webkit-appearance: none !important;
+          margin: 0 !important;
+          -moz-appearance:textfield !important;
+         }
+         .no-spin{
+            width: 100%;
+            height: 36px;
+            font-size: 15px;
+            padding-left: 10px;
+            background-size: 21px;
+            border: 0px;
+            border-radius: 3px;
+            background-color: #cacaca;
+            background-position: 9px 8px;
+            background-repeat: no-repeat;
+            display: flex;
+         }
+         .no-spin option{
+            padding: 20px;
+         }
+         #table_id_length select{
+           height: 30px;
+           font-size: 15px;
+           padding-left: 10px;
+           background-size: 21px;
+           border: 0px;
+           border-radius: 3px;
+           background-color: #cacaca;
+         }
+         .dataTables_filter input{
+           height: 30px;
+           font-size: 15px;
+           padding-left: 10px;
+           background-size: 21px;
+           border: 0px;
+           border-radius: 3px;
+           background-color: #cacaca;
+         }
+         .dataTables_length{
+            margin-bottom: 15px;
+         }
+         .dataTable{
+            margin-bottom: 15px !important;
+         }
+         .current{
+            background: #ccc !important;
+         }
+         .show_reported_comments{
+            display: none;
+         }
+    	</style>
+    </head>
+<body>
+	<div class="container-fluid nav_bar" style="background-color: black;">
+            <div class="container">
+                <div class="col-md-12 navbar navbar-ct-blue navbar-fixed-top" style="background-color: black;padding-top: 9px;">
+                    <div>
+                        <div class="col-md-5" style="padding-bottom: 4px;">
+                            <a href="home_page">
+                                <div class="col-md-1 logo">
+                                    <img src="assest/images/Ziba.png" style="width: 32px;padding-top: 3px;">
+                                </div>
+                            </a>
+
+                            <div class="col-md-4 " style="padding-top: 3px;">
+                            	<p style="color: white;padding-top: 0px;font-size: 22px;">Zibahub</p>
+                                <!-- <input type="text" id="search_box" placeholder="Search" name="search" style="padding-top: 5px;padding-bottom: 5px;"> -->
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <section id="nav-test">
+                                <div id="nav-container" style="float: right;">
+                                    <ul>
+                                        <li class="nav-li">
+                                                <center class="notification_admin">
+                                                    <img class="imgs notification_admin nav_icon_width" src="assest/images/Notifications.png"
+                                                        style="margin-top: 0px">
+                                                    <div class="notification_mark" style="display: block;position: absolute;z-index: 1;top: 8px;padding-left: 12px;">
+                                                        <!-- <img src="assest/images/circle.png" style="width: 11px"> -->
+                                                        <!-- <p class="notification_text" style="background-color: #fd3c2e;border-radius: 19px;height: 13px;width: 14px;font-size: 10px;">3</p> -->
+                                                    </div>
+                                                    <p style="margin-top: 0px;"></p>
+                                                </center>
+                                        </li>
+                                        <li class="nav-li" style="margin-left: 11px">
+                                                <center class="logout">
+                                                    <img class="imgs logout" class="nav_icon_width" id="logout" src="assest/images/logout.png"
+                                                        style="margin-top: 0px;">
+                                                    <p style="margin-top: 0px;"></p>
+                                                </center>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin: 0;padding: 0;">
+			<div class="col-md-12" style="padding: 0;top: 56px">
+				<div class="col-md-3" style="width:240px;padding: 0;">
+					<div class="side_nav" style="position: fixed;background-color: #2F353F;width:240px">
+						<div class="col-md-12" style="padding: 21px 0px 18px 0;">
+							<div class="col-md-2" style="width: 55px">
+								<img src="assest/images/user.png" style="width: 46px;">
+							</div>
+							<div class="col-md-10" style="width: 163px;padding-top: 4px;">
+								<span style="color: white;font-weight: 700">Admin</span>
+								<p style="color: white">Administartor</p>
+							</div>
+						</div>
+                        <ul class="nav nav-tabs menu_parent">
+                            <li class="active menu_admin">
+                                <a data-toggle="tab" href="#stats">
+                                    <div class="cstats_list">
+                                        <p style="font-size: 15px;color: white;margin-bottom: 0;"><img src="assest/images/stats.svg" style="width: 25px;margin-right: 7px;">Stats</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu_admin">
+                                <a data-toggle="tab" href="#newsfeed_page">
+            						<div class="cnewsfeed" >
+            							<span style="font-size: 15px;color: white"><img src="assest/images/feed.png" style="width: 25px;margin-right: 7px;"> Newsfeed</span>
+            						</div>
+                                </a>
+                            </li>
+                            <li class="menu_admin">
+                                <a data-toggle="tab" href="#user_management">
+                                    <div class="cuser_management_bar">
+                                        <p style="font-size: 15px;color: white;margin-bottom: 0;"><img src="assest/images/users.png" style="width: 25px;margin-right: 7px;"> User Management</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu_admin">
+                                <a data-toggle="tab" href="#user_report">
+                                    <div class="user_report">
+                                        <p style="font-size: 15px;color: white;margin-bottom: 0;"><img src="assest/images/reported.svg" style="width: 27px;margin-right: 7px;">Reported User</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu_admin">
+                                <a data-toggle="tab" href="#faqs">
+                                    <div class="cfaq">
+                                        <p style="font-size: 15px;color: white;margin-bottom: 0;"><img src="assest/images/question-sign.png" style="width: 25px;margin-right: 7px;">FAQ</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu_admin">
+                                <a data-toggle="tab" href="#support_link">
+                                    <div class="csupport">
+                                        <p style="font-size: 15px;color: white;margin-bottom: 0;"><img src="assest/images/support.png" style="width: 25px;margin-right: 7px;">Help</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu_admin">
+                                <a data-toggle="tab" href="#feedbacks_link">
+                                     <div class="cfeedback">
+                                        <p style="font-size: 15px;color: white;margin-bottom: 0;"><img src="assest/images/feedback.png" style="width: 25px;margin-right: 7px;">Feedback</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu_admin">
+                                <a data-toggle="tab" href="#register_link">
+                                    <div class="cregistration">
+                                        <p style="font-size: 15px;color: white;margin-bottom: 0;"><img src="assest/images/register.png" style="width: 25px;margin-right: 7px;">Registrations</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="menu_admin">
+                                <a data-toggle="tab" href="#unverify_user">
+                                    <div class="unverifyusers">
+                                        <p style="font-size: 15px;color: white;margin-bottom: 0;"><img src="assest/images/block-user.png" style="width: 25px;margin-right: 7px;">Unverified User</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                       </div>
+				</div>
+				<div class="col-md-9 show_post" style="padding: 0;margin-left: 240px;padding-top: 24px;padding-bottom: 42px;">
+                    <div class="admin_menu" style="padding: 0px;">
+    					<div class="col-md-12 tab-pane fade" id="newsfeed_page" style="padding: 0;display: none;">
+    						<div class="col-md-12" style="padding: 0">
+    							<div class="col-md-8 search_side" style="padding-right: 0;width: 664px;">
+    								<input type="text" name="" class="search_button search_display" placeholder="Search by display name" style="background-image: url('assest/images/displayname.png');">
+    								<input type="text" name="" class="search_button search_text1" placeholder="Search by post text" style="background-image: url('assest/images/posttext.png');margin-left: 33px;">
+    								<img src="assest/images/refresh.png" class="home_refresh" style="width: 22px;margin-left: 13px;opacity: 0.5;cursor: pointer;">
+    								<img class="titleview view" src="assest/images/tileview.png" style="width: 22px;margin-left: 13px;cursor: pointer;opacity: 0.5;">
+    								<img class="listview view" src="assest/images/listview.png" style="width: 22px;margin-left: 13px;display: none;cursor: pointer;opacity: 0.5;">
+    							</div>
+    							<div class="col-md-4 hr_div" style="padding:0">
+    								<div class="col-md-7" style="padding-right: 0;">
+    									<hr style="border:0.5px solid">
+    								</div>
+    								<div class="col-md-5" style="padding-right: 0;;padding-top:9px">
+    									<span style="font-size: 11px;">Sort By:</span>
+    									<span class="set_type" style="font-weight: 700">All Posts</span><img src="assest/images/down_icon.png" class="showtype_post" style="width: 15px;cursor: pointer;margin-left: 6px;">
+                                        <div class="col-md-4 show_type_post shadow" style="padding: 7px 0 7px 0px;display: none;">
+                                            <div class="col-md-12 select_type_post" data-id="0" data-type="All Posts">All Posts</div>
+                                            <div class="col-md-12 select_type_post" data-id="2" data-type="Removed">Removed</div>
+                                            <div class="col-md-12 select_type_post" data-id="1" data-type="Active">Active</div>
+                                            <div class="col-md-12 select_type_post" data-id="3" data-type="Deleted">Deleted</div>
+                                        </div>
+    								</div>
+    							</div>
+    						</div>
+                                <center style="padding: 11px 0 0 0;">
+                                    <img src="assest/images/loading.gif" class="load_image2" width="30px" style="display: none;">
+                                </center>
+    						<div class="col-md-12 titleview_preview" style="padding: 11px 0 0 0;">
+    						</div>
+    						<div class="col-md-12 listview_preview" style="display: none;padding-top: 21px;">
+    						</div>
+    						<img id="myBtn" src="assest/images/top.png" style="width: 56px;display: none;position: fixed;bottom: 7px;right: 0;cursor: pointer;">
+    					</div>
+    					<div class="col-md-12 tab-pane fade" id="user_management" style="display: none;">
+    						<div class="col-md-12" style="padding: 0">
+    							<div class="col-md-8 search_side1" style="padding: 0;width: 570px;">
+    								<input type="text" name="" class="search_button search_text" placeholder="Search by display name" style="background-image: url('assest/images/displayname.png');">
+                                    <span style="padding-left: 18px;">
+    								  <input type="radio" name="roles" value="3" checked > All Roles
+    								  <input type="radio" name="roles" value="1"> Professional
+    								  <input type="radio" name="roles" value="2"> Business 
+                                      <!-- <input type="radio" name="roles" value="4"> Reported Users   -->
+    								</span>
+    								<img src="assest/images/refresh.png" class="user_refresh" style="width: 22px;margin-left: 13px;opacity: 0.5;cursor: pointer;">
+    							</div>
+    							<div class="col-md-4 hr_div" style="padding:0">
+    								<div class="col-md-8" style="padding-right: 0;width: 65.666667%;">
+    									<hr style="border:0.5px solid">
+    								</div>
+    								<div class="col-md-4" style="padding-right: 0;;padding-top:9px;padding-left: 9px;width: 34.333333%">
+    									<span>Sort By:</span>
+    									<span class="set_user" style="font-weight: 700">All Users</span><img src="assest/images/down_icon.png" class="show_type" style="width: 15px;cursor: pointer;margin-left: 6px;">
+                                        <div class="col-md-4 show_type_user shadow" style="padding: 7px 0 7px 0px;display: none;">
+                                            <div class="col-md-12 select_role" data-id="3" data-type="All Users">All Users</div>
+                                            <div class="col-md-12 select_role" data-id="1" data-type="Active Users">Active Users</div>
+                                            <div class="col-md-12 select_role" data-id="2" data-type="Blocked Users">Blocked Users</div>
+                                            <!-- <div class="col-md-12 select_role" data-id="4" data-type="Report User">Report User</div> -->
+
+                                        </div>
+    								</div>
+    							</div>
+                            </div>
+                            <center style="padding: 11px 0 0 0;">
+                                    <img src="assest/images/loading.gif" class="loading_imag" width="30px" style="display: none">
+                                </center>
+    						<div class="col-md-12 user_management_details" style="padding: 13px 0 0 0;">
+    					</div>
+    				    </div>
+                        <div class="col-md-12 tab-pane fade" id="user_report" style="display: none;">
+                            <!-- <div class="col-md-12" style="padding: 0">
+                                <div class="col-md-8 search_side1" style="padding: 0;width: 670px;">
+                                    <input type="text" name="" class="search_button search_text" placeholder="Search by display name" style="background-image: url('assest/images/displayname.png');">
+                                    <span style="padding-left: 18px;">
+                                      <input type="radio" name="roles" value="3" checked > All Roles
+                                      <input type="radio" name="roles" value="1"> Professional
+                                      <input type="radio" name="roles" value="2"> Business 
+                                      <input type="radio" name="roles" value="4"> Reported Users  
+                                    </span>
+                                    <img src="assest/images/refresh.png" class="user_refresh" style="width: 22px;margin-left: 13px;opacity: 0.5;cursor: pointer;">
+                                </div>
+                                <div class="col-md-4 hr_div" style="padding:0">
+                                    <div class="col-md-8" style="padding-right: 0;width: 65.666667%;">
+                                        <hr style="border:0.5px solid">
+                                    </div>
+                                    <div class="col-md-4" style="padding-right: 0;;padding-top:9px;padding-left: 9px;width: 34.333333%">
+                                        <span>Sort By:</span>
+                                        <span class="set_user" style="font-weight: 700">All user</span><img src="assest/images/down_icon.png" class="show_type" style="width: 15px;cursor: pointer;margin-left: 6px;">
+                                        <div class="col-md-4 show_type_user shadow" style="padding: 7px 0 7px 0px;display: none;">
+                                            <div class="col-md-12 select_role" data-id="3" data-type="All User">All User</div>
+                                            <div class="col-md-12 select_role" data-id="1" data-type="Active">Active</div>
+                                            <div class="col-md-12 select_role" data-id="2" data-type="Inactive">Block User</div>
+                                            <div class="col-md-12 select_role" data-id="4" data-type="Report User">Report User</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <center style="padding: 11px 0 0 0;">
+                                    <img src="assest/images/loading.gif" class="loading_imag" width="30px" style="display: none">
+                            </center>
+                            <div class="col-md-12 user_reportusers" style="padding: 13px 0 0 0;">
+                            </div>
+                        </div>
+                        <div class="col-md-12 tab-pane fade" id="faqs" style="display: none;">
+                            <div class="col-md-12 col-sm-12 col-xs-12 " style="padding-bottom: 12px;">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_faq" style="border:0;float: right;">
+                                    <span style="font-size: 16px;padding-left: 7px;">Add FAQ</span>
+                                </button>
+                            </div>
+                            <center style="padding: 11px 0 0 0;">
+                                <img src="assest/images/loading.gif" class="loading_imag" width="30px" style="display: none">
+                            </center>
+                            <div class="col-md-12 new_faq" style="padding: 0">
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-12 tab-pane fade" id="register_link" style="display: none;padding-left: 15px;padding-right: 25px;">
+                            <div id="register">
+                                <!-- <table>
+                                    <tbody class="register_list">
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Date</th>
+                                            <th>Display Name</th>
+                                            <th>Email</th>
+                                            <th>Platform</th>
+                                        </tr>
+                                    </tbody>
+                                </table> -->
+                                <div class="col-md-12" style="padding: 0px;margin-bottom: 35px;">
+                                    <div class="col-md-2">
+                                        <label>Start date</label>
+                                        <input type="date" name="date" class="date_re_start no-spin">    
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>End date</label>
+                                        <input type="date" name="date" class="date_re_end no-spin">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>Complete/Incomplete</label>
+                                        <select class="no-spin registeredStatus">
+                                          <option style="display: none;" value="Select" disabled="true" selected>Select</option>
+                                          <option value="1">Profile Complete</option>
+                                          <option value="2">Profile Incomplete</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>User Status</label>
+                                        <select class="no-spin userStatus">
+                                          <option style="display: none;" value="Select" disabled="true" selected>Select</option>
+                                          <option value="1">Active User</option>
+                                          <option value="2">Deactivated User</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label>Platform</label>
+                                        <select class="no-spin Platform">
+                                          <option style="display: none;" value="Select" disabled="true" selected>Select</option>
+                                          <option value="iOS">IOS</option>
+                                          <option value="android">Android</option>
+                                          <option value="Web">Web</option>
+                                          <option value="" selected disabled style="display: none;">All</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn apply_filter"  style="background-color: #337ab7;margin-top: 25px;float: right;color: #fff;">Apply Filters</button>
+                                    </div>
+                                </div>
+                                <center style="padding: 11px 0 0 0;">
+                                 <img src="assest/images/loading.gif" class="loading_imag" width="30px" style="display: none">
+                                </center>
+                                <div class="col-md-12" id="table_data" style="text-align: center;padding-top: 12px;">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- //unverify User list -->
+                        <div class="col-md-12 tab-pane fade" id="unverify_user" style="display: none;padding-left: 15px;padding-right: 25px;">
+                            <div id="register">
+                                <!-- <h1>unverify_user</h1> -->
+                                <center style="padding: 11px 0 0 0;">
+                                 <img src="assest/images/loading.gif" class="loading_imag" width="30px" style="display: none">
+                                </center>
+                                <div class="col-md-12" id="table_data1" style="text-align: center;padding-top: 12px;">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end -->
+                    
+                        
+                        <div class="col-md-12 tab-pane fade" id="support_link" style="display: none;">
+                            <center style="padding: 11px 0 0 0;">
+                                <img src="assest/images/loading.gif" class="loading_imag" width="30px" style="display: none">
+                            </center>
+                            <div id="supports">
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 tab-pane fade" id="feedbacks_link" style="display: none;">
+                            <center style="padding: 11px 0 0 0;">
+                                <img src="assest/images/loading.gif" class="loading_imag" width="30px" style="display: none">
+                            </center>
+                            <div id="feedbacks">
+
+                            </div>
+                        </div>
+                        <div class="col-md-offset-1 col-md-10 tab-pane fade in active" id="stats">
+                            <div class=" col-md-4">
+                                <div class="col-md-12 shadow" style="padding:30px;">
+                                    <div class="col-md-6" style="padding:0px;">
+                                        <img src="assest/images/newsfeed.svg" style="width: 93px;">
+                                    </div>
+                                    <div class="col-md-6" style="text-align: center;padding: 0;">
+                                        <p  class="feed_count" style="font-size: 40px;font-weight: bold;">0</p>
+                                        <p>Feed Posts</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-md-4">
+                                <div class="col-md-12 shadow" style="padding:30px;">
+                                    <div class="col-md-6" style="padding:0px;">
+                                        <img src="assest/images/job-search.svg" style="width: 93px;;">
+                                    </div>
+                                    <div class="col-md-6" style="text-align: center;padding: 0;">
+                                        <p class="job_count" style="font-size: 40px;font-weight: bold;">0</p>
+                                        <p>Work Posts</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="col-md-12 shadow" style="padding:30px;">
+                                    <div class="col-md-6" style="padding:0px;">
+                                        <img src="assest/images/swap.png" style="width: 93px;">
+                                    </div>
+                                    <div class="col-md-6" style="text-align: center;padding: 0;">
+                                        <p class="bazaar_count" style="font-size: 40px;font-weight: bold;">0</p>
+                                        <p>Swap Posts</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-top: 23px;">
+                                <div class="col-md-12 shadow" style="padding:30px;">
+                                    <div class="col-md-6" style="padding:0px;">
+                                        <img src="assest/images/professionals.png" style="width: 93px;">
+                                    </div>
+                                    <div class="col-md-6" style="text-align: center;padding: 0;">
+                                        <p class="stylist_count" style="font-size: 40px;font-weight: bold;">0</p>
+                                        <p>Professionals</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-top: 23px;">
+                                <div class="col-md-12 shadow" style="padding:30px;">
+                                    <div class="col-md-6" style="padding:0px;">
+                                        <img src="assest/images/business.png" style="width: 93px;">
+                                    </div>
+                                    <div class="col-md-6" style="text-align: center;padding: 0;">
+                                        <p class="salon_count" style="font-size: 40px;font-weight: bold;">0</p>
+                                        <p>Businesses</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-top: 23px;">
+                                <div class="col-md-12 shadow" style="padding:30px;">
+                                    <div class="col-md-6" style="padding:0px;">
+                                        <img src="assest/images/verifiedusers.png" style="width: 93px;">
+                                    </div>
+                                    <div class="col-md-6" style="text-align: center;padding: 0;">
+                                        <p class="verified_count" style="font-size: 40px;font-weight: bold;">0</p>
+                                        <p>Verified Users</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-top: 23px;">
+                                <div class="col-md-12 shadow" style="padding:30px;">
+                                    <div class="col-md-6" style="padding:0px;">
+                                        <img src="assest/images/unverifiedusers.png" style="width: 93px;">
+                                    </div>
+                                    <div class="col-md-6" style="text-align: center;padding: 0;">
+                                        <p class="unverified_count" style="font-size: 40px;font-weight: bold;">0</p>
+                                        <p>Unverified Users</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-top: 23px;">
+                                <div class="col-md-12 shadow" style="padding:30px;">
+                                    <div class="col-md-6" style="padding:0px;">
+                                        <img src="assest/images/fund.png" style="width: 93px;">
+                                    </div>
+                                    <div class="col-md-6" style="text-align: center;padding: 0;">
+                                        <p class="profile_comp_count" style="font-size: 40px;font-weight: bold;">0</p>
+                                        <p>100% Profile</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-top: 23px;">
+                                <div class="col-md-12 shadow" style="padding:30px;">
+                                    <div class="col-md-6" style="padding:0px;">
+                                        <img src="assest/images/deactivatedusers.png" style="width: 93px;">
+                                    </div>
+                                    <div class="col-md-6" style="text-align: center;padding: 0;">
+                                        <p class="deactivaed_user_count" style="font-size: 40px;font-weight: bold;">0</p>
+                                        <p style="white-space: nowrap">Deactivated Users</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 admin_notification" style="display: none;top: 12px;">      
+                        <div class="col-md-offset-2 col-md-8 ">
+                            <p style="font-size: 15px;font-weight: 700;">Notifications</p>
+                            <center>
+                               <img class="notification_load" src="assest/images/loading.gif" style="width: 33px;display: none;">
+                           </center>
+                            <div class="list_notification" style="padding: 0"> 
+                            </div>
+                            <div class="notification_empty" style="padding: 0"> 
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+        </div>
+        <!-- image modal -->
+        <div class="modal" id="image_modal" role="dialog" style="background-color: rgba(0, 0, 0, 0.68);overflow: auto;">
+            <div class="modal-dialog" style="width: auto;height: auto;">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-body " style="padding:0">
+                        <img class="close" data-dismiss="modal" src="assest/images/delete.png" style="position: absolute;right: -12px;top: -13px;opacity: 1;width: 23px;">
+                        <img src="" id="image_zoom" style="object-fit: cover;width: auto;max-height: 487px;">
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+        </div>
+        <div class="modal fade" id="deactivate_user" role="dialog" style="background-color: rgba(0, 0, 0, 0.68)">
+            <!-- Modal -->
+            <div class="modal-dialog" style="width: 486px;">
+
+                <!-- Modal content-->
+                <div class="follow_border_radius" style="background-color: white;border-radius: 4px;">
+                    <div class="modal-header" style="padding: 10px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <p class="modal-title" style="padding-left: 6px;font-weight: 700">
+                            <b id="count_follow">Confirmation</b>
+                        </p>
+
+                    </div>
+                    <div class="modal-body " style="padding: 0px;background-color: white">
+                        <p class="deactive_user_conform" style="padding-top: 11px;padding-left: 16px;display: none;">Are you sure you want to Block this user?</p>
+                        <p class="active_user_conform" style="padding-top: 11px;padding-left: 16px;display: none;">Are you sure you want to Unblock this user?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <span  class="" data-dismiss="modal" style="cursor: pointer;">Cancel</span>
+                        <button type="button" data-dismiss="modal" class="save_button" id="deactive" style="padding-left: 10px;padding-right: 14px;padding-top: 3px;padding-bottom: 5px;">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="block_post" role="dialog" style="background-color: rgba(0, 0, 0, 0.68);z-index: 99999999999999999">
+            <!-- Modal -->
+            <div class="modal-dialog" style="width: 486px;">
+
+                <!-- Modal content-->
+                <div class="follow_border_radius" style="background-color: white;border-radius: 4px;">
+                    <div class="modal-header" style="padding: 10px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <p class="modal-title" style="padding-left: 6px;font-weight: 700">
+                            <b id="count_follow">Confirmation</b>
+                        </p>
+
+                    </div>
+                    <div class="modal-body " style="padding: 0px;background-color: white">
+                        <p class="post_unblock_conform" style="padding-top: 11px;padding-left: 16px;display: none;">Are you sure you want to unblock this post?</p>
+                        <p class="post_block_conform" style="padding-top: 11px;padding-left: 16px;display: none;">Are you sure you want to block this post?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <span  class="" data-dismiss="modal" style="cursor: pointer;">Cancel</span>
+                        <button type="button" data-dismiss="modal" class="save_button" id="block_post_comfim" style="padding-left: 10px;padding-right: 14px;padding-top: 3px;padding-bottom: 5px;">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="post_show" role="dialog" style="background-color: rgba(0, 0, 0, 0.68)">
+            <!-- Modal -->
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="border_radius" style="background-color: white;border-radius: 9px 9px 0px 0px;">
+                    <div class="modal-header" style="    border-radius: 9px 9px 0px 0px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <img id="gif_add_img" class="gif_image1" src="assest\images\loading.gif" style="width: 25px;height: 25px;float: right;margin-right: 50%;display: none;">
+                        <h4 class="modal-title">
+                            <b>Post</b>
+                        </h4>
+                    </div>
+                    <div class="modal-body col-md-12" style="padding: 0px 0px 15px 0px;background-color: white;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;">
+                        <div class="col-md-12 modal_parent_div" id="comment_scroll" style="padding: 0;overflow: auto;background-color: white;overflow-x: hidden;">
+
+                        </div>
+
+                        <div class="Comment_box">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- list liked user in feed -->
+        <div class="modal fade" id="list_of_user" role="dialog" style="background-color: rgba(0, 0, 0, 0.68)">
+            <!-- Modal -->
+            <div class="modal-dialog" style="width: 486px;">
+
+                <!-- Modal content-->
+                <div class="like_border_radius" style="background-color: white;border-radius: 4px;">
+                    <div class="modal-header" style="padding: 10px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <img id="gif_add_img" class="gif_image2" src="assest\images\loading.gif" style="width: 25px;height: 25px;float: right;margin-right: 50%;display: none;">
+                        <p class="modal-title" style="padding-left: 6px;font-weight: 700">
+                            <b id="count_like">0 Likes</b>
+                        </p>
+
+                    </div>
+                    <div class="modal-body " style="padding: 0px;background-color: white">
+                        <div class="col-md-12" id="scroll_like" style="padding: 0;background-color: white;overflow: auto;max-height: 468px;border-bottom-right-radius: 4px;border-bottom-left-radius: 4px;overflow-x: hidden;">
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="add_faq" role="dialog" style="background-color: rgba(0, 0, 0, 0.68)">
+            <!-- Modal -->
+            <div class="modal-dialog" style="width: 486px;">
+
+                <!-- Modal content-->
+                <div class="follow_border_radius" style="background-color: white;border-radius: 4px;">
+                    <div class="modal-header" style="padding: 10px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <p class="modal-title" style="padding-left: 6px;font-weight: 700">
+                            <b id="count_follow">Confirmation</b>
+                        </p>
+
+                    </div>
+                    <div class="modal-body " style="padding: 0px;background-color: white">
+                        <div style="padding: 11px;">
+                            <label>Question</label>
+                            <textarea type="text" class="add_question" name="" style="width: 100%;margin-bottom:10px;resize: none;"></textarea>
+                            <label>Answer</label>
+                            <textarea class="add_answer" style="width: 100%;min-height: 192px;resize: none;"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <span  class="" data-dismiss="modal" style="cursor: pointer;">Cancel</span>
+                        <button type="button" data-dismiss="modal" class="save_button" id="add_new_faq" style="padding-left: 10px;padding-right: 14px;padding-top: 3px;padding-bottom: 5px;">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="edit_faq" role="dialog" style="background-color: rgba(0, 0, 0, 0.68)">
+            <!-- Modal -->
+            <div class="modal-dialog" style="width: 486px;">
+
+                <!-- Modal content-->
+                <div class="follow_border_radius" style="background-color: white;border-radius: 4px;">
+                    <div class="modal-header" style="padding: 10px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <p class="modal-title" style="padding-left: 6px;font-weight: 700">
+                            <b id="count_follow">Confirmation</b>
+                        </p>
+
+                    </div>
+                    <div class="modal-body " style="padding: 0px;background-color: white">
+                        <div style="padding: 11px;">
+                            <label>Question</label>
+                            <textarea type="text" class="edit_question" name="" style="width: 100%;margin-bottom:10px;resize: none;"></textarea>
+                            <label>Answer</label>
+                            <textarea class="edit_answer" style="width: 100%;min-height: 192px;resize: none;"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <span  class="" data-dismiss="modal" style="cursor: pointer;">Cancel</span>
+                        <button type="button" data-dismiss="modal" class="save_button" id="edit_new_faq" style="padding-left: 10px;padding-right: 14px;padding-top: 3px;padding-bottom: 5px;">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="remove_faq" role="dialog" style="background-color: rgba(0, 0, 0, 0.68);z-index: 99999999999999999">
+            <!-- Modal -->
+            <div class="modal-dialog" style="width: 486px;">
+
+                <!-- Modal content-->
+                <div class="follow_border_radius" style="background-color: white;border-top-left-radius: 4px;border-top-right-radius: 4px;">
+                    <div class="modal-header" style="padding: 10px;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <p class="modal-title" style="padding-left: 6px;font-weight: 700">
+                            <b id="count_follow">Confirmation</b>
+                        </p>
+
+                    </div>
+                    <div class="modal-body " style="padding: 21px;background-color: white">
+                       <label>Are you sure? would you like to delete this faq?</label>
+                    </div>
+                    <div class="modal-footer">
+                        <span  class="" data-dismiss="modal" style="cursor: pointer;">Cancel</span>
+                        <button type="button" data-dismiss="modal" class="save_button" id="delete_faq" style="padding-left: 10px;padding-right: 14px;padding-top: 3px;padding-bottom: 5px;">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="reported_user" role="dialog" style="background-color: rgba(0, 0, 0, 0.68);z-index: 99999999999999999">
+            <!-- Modal -->
+            <div class="modal-dialog" style="width: 486px;">
+
+                <!-- Modal content-->
+                <div class="follow_border_radius" style="background-color: white;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                    <div class="modal-header" style="padding: 15px;" >
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <p class="modal-title" style="padding-left: 6px;font-weight: 700">
+
+                            <b id="count_follow" style="font-weight: 700;">Reported By</b>
+                            <img id="repot_load" class="gif_image2" src="assest\images\loading.gif" style="width: 25px;height: 25px;float: right;margin-right: 50%;display: none;">
+                        </p>
+
+
+                    </div>
+                    <div class="modal-body col-md-12" style="padding: 0px; padding-bottom: 10px; background-color: white;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
+                       <div class="col-md-12" id="reported_user_info" style="padding: 0;background-color: white;overflow: auto;max-height: 468px;border-bottom-right-radius: 4px;border-bottom-left-radius: 4px;overflow-x: hidden;">
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+</body>
+<script type="text/javascript" src="resource\js\jquery.min.js"></script>
+<script type="text/javascript" src="resource\js\bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="app.js"></script>
+<script src="resource\js\notify.js"></script>
+<script type="text/javascript" src="assest/js/admin.js"></script>
+<script type="text/javascript" src="assest/js/faq.js"></script>
+<script type="text/javascript" src="assest/js/support.js"></script>
+<script type="text/javascript" src="assest/js/feedback.js"></script>
+<script type="text/javascript" src="assest/js/stats.js"></script>
+<script type="text/javascript" src="assest/js/common.js"></script>
+<script type="text/javascript" src="assest/js/notification.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="assest/js/registration.js"></script>
+<script type="text/javascript" src="assest/plugins/datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" charset="utf8" src="assest/js/datatable.js"></script>
+
+<script type="text/javascript">
+    var win_width = $(window).width();
+    var nav_width = $(".side_nav").width();
+    $(".show_post").css('width',(win_width-nav_width)+'px');
+    App.admin_analytics()
+    App.notification_cout()
+    $(".stats_list").trigger('click')
+    $('#get_date').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+    });
+    $('.home_refresh').click(function(){
+        App.get_admin_newsfeed(0,"","")
+    });
+    $('.user_refresh').click(function(){
+        App.get_allusers(0,"","")
+    });
+
+</script>
+</html>
